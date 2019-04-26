@@ -152,7 +152,6 @@ function renderWave() {
 
     push();
     scale(1.5);
-    //  rotate(TWO_PI*-0.01);
     ellipse(x * xspacing, height / 2 + yvalues[x] - 200, 2);
     line(width / 2 - 240, height / 2 - 150, x * xspacing, height / 2 + yvalues[x] - 200);
     pop();
