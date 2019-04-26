@@ -32,7 +32,7 @@ var save_screensaver;
 
 //seting up canvas and camera
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(screen.width, screen.height);
   w = width + 16;
   dx = (TWO_PI / period) * xspacing;
   yvalues = new Array(floor(w / xspacing));
@@ -40,21 +40,27 @@ function setup() {
   video = createCapture(VIDEO, ready);
   video.size(320, 240);
   video.hide();
+
+  //button for waves
   button = createButton('Waves');
   button.position(340, 40);
   button.style("background-color: #4CAF50; border: none;  color: #00ff10; padding: 15px 32px;  font-size: 16px;");
   button.mousePressed(changeKey);
 
+  //button for circle art
   button1 = createButton('Circle Art');
   button1.position(540, 40);
   button1.style("background-color: #303030; border: none;  color: #00ff10; padding: 15px 32px;  font-size: 16px;");
   button1.mousePressed(changeKey1);
 
+  //button for photobooth
   button2 = createButton('Photobooth');
   button2.position(740, 40);
   button2.style("background-color: #303030; border: none;  color: #00ff10; padding: 15px 32px;  font-size: 16px;");
   button2.mousePressed(changeKey2);
 
+
+  //button for saving background
   save_screensaver = createButton('Save Image');
   save_screensaver.position(940, 40);
   save_screensaver.style("background-color: #303030; border: none;  color: #ff0000; padding: 15px 32px;  font-size: 16px;");
@@ -67,10 +73,8 @@ function ready() {
   go = true;
 }
 
-
+// draw fuction for waves
 function draw() {
-
-
 
   if (key == 0) {
 
@@ -150,7 +154,7 @@ function renderWave() {
     scale(1.5);
     //  rotate(TWO_PI*-0.01);
     ellipse(x * xspacing, height / 2 + yvalues[x] - 200, 2);
-    line(width / 2 - 240, height / 2 - 120, x * xspacing, height / 2 + yvalues[x] - 200);
+    line(width / 2 - 240, height / 2 - 150, x * xspacing, height / 2 + yvalues[x] - 200);
     pop();
   }
 }
@@ -165,7 +169,7 @@ function renderWave1() {
     line(width / 2, height / 2, x * xspacing, height / 2 + yvalues[x] - 300);
     push();
     scale(1.5);
-    line(width / 2 - 240, height / 2 - 120, x * xspacing, height / 2 - 50 + yvalues[x])
+    line(width / 2 - 240, height / 2 - 150, x * xspacing, height / 2 - 50 + yvalues[x])
     ellipse(x * xspacing, height / 2 - 50 + yvalues[x], 2);
     pop();
   }
